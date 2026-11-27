@@ -51,13 +51,13 @@ export default function JobManagement() {
 
   useEffect(() => { void loadJobs(); }, []);
   useEffect(() => {
-    if (!selectedId) { setDetail(null); return; }
+    if (!selectedId) { setDetail(null); setDetailLoading(false); return; }
     const controller = new AbortController();
     setDetailLoading(true); setDetail(null);
     fetch(API_BASE + '/api/jobs/' + encodeURIComponent(selectedId), { signal: controller.signal })
       .then(response => { if (!response.ok) throw new Error('Не удалось открыть задание (' + response.status + ')'); return response.json() as Promise<JobManifest>; })
       .then(data => setDetail(data))
-      .catch(err => { if (err.name !== 'AbortError') setError(err instanceof Error ? err.message : 'Ошибка загрузки задания'); })
+      .catch(err => { if (!(err instanceof DOMException && err.name === 'AbortError')) setError(err instanceof Error ? err.message : 'Ошибка загрузки задания'); })
       .finally(() => setDetailLoading(false));
     return () => controller.abort();
   }, [selectedId]);
