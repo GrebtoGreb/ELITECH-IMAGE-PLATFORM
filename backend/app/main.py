@@ -337,6 +337,8 @@ def update_job(job_id: str, payload: dict):
                     raise HTTPException(422, "template must be a string or null")
                 if isinstance(value, str):
                     value = value.strip() or None
+                    if value and len(value) > 200:
+                        raise HTTPException(422, "template name is too long")
 
             previous = manifest.get(field)
             if previous != value:
