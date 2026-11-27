@@ -104,7 +104,7 @@ class JobManagementTests(unittest.TestCase):
 
         restored = main.restore_job(self.job_id)
         self.assertFalse(restored["archived"])
-        self.assertEqual(main.list_jobs(limit=100)["total"], 1)
+        self.assertEqual(main.list_jobs(limit=100, include_archived=False, archived_only=False)["total"], 1)
 
     def test_source_and_execution_fields_are_not_editable(self):
         with self.assertRaises(HTTPException) as raised:
