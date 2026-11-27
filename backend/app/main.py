@@ -322,10 +322,10 @@ def update_job(job_id: str, payload: dict):
                     raise HTTPException(422, "Select at least one operation")
                 value = list(dict.fromkeys(item.strip() for item in value))
             elif field == "provider":
-                if value not in ALLOWED_PROVIDERS:
+                if not isinstance(value, str) or value not in ALLOWED_PROVIDERS:
                     raise HTTPException(422, "Unknown provider")
             elif field == "prompt_mode":
-                if value not in ALLOWED_PROMPT_MODES:
+                if not isinstance(value, str) or value not in ALLOWED_PROMPT_MODES:
                     raise HTTPException(422, "Unknown prompt mode")
             elif field == "prompt_original":
                 if not isinstance(value, str) or not value.strip():
