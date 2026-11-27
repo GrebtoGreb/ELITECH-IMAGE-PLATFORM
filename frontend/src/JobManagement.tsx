@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import {
   Archive,
   ArchiveRestore,
@@ -254,7 +254,7 @@ export default function JobManagement() {
     });
   }
 
-  async function saveEdit(event: React.FormEvent<HTMLFormElement>) {
+  async function saveEdit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!detail || !editDraft) return;
     setActionBusy(true);
