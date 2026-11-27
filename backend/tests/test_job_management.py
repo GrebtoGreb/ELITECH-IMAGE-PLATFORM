@@ -99,8 +99,8 @@ class JobManagementTests(unittest.TestCase):
     def test_archive_and_restore_control_list_visibility(self):
         archived = main.archive_job(self.job_id)
         self.assertTrue(archived["archived"])
-        self.assertEqual(main.list_jobs(limit=100)["total"], 0)
-        self.assertEqual(main.list_jobs(limit=100, archived_only=True)["total"], 1)
+        self.assertEqual(main.list_jobs(limit=100, include_archived=False, archived_only=False)["total"], 0)
+        self.assertEqual(main.list_jobs(limit=100, include_archived=False, archived_only=True)["total"], 1)
 
         restored = main.restore_job(self.job_id)
         self.assertFalse(restored["archived"])
