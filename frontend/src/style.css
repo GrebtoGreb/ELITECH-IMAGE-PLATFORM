@@ -74,3 +74,32 @@
 .jm-detail-empty svg{color:#777}.jm-detail-empty b{color:#ddd}
 @media(max-width:900px){.jm-layout{grid-template-columns:1fr}.jm-items{max-height:400px}.jm-stats{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.jm-heading{align-items:flex-start;flex-direction:column}.jm-stats{grid-template-columns:1fr 1fr}.jm-detail-head{align-items:flex-start;flex-direction:column}.jm-source-meta{flex-direction:column}.jm-execution{grid-template-columns:1fr}.main-nav button{padding:8px;font-size:9px}}
+
+
+/* JOB MANAGEMENT v0.3 — safe draft controls */
+.jm-view-tabs{display:flex;gap:5px;margin:-3px 0 12px}
+.jm-view-tabs button{border:1px solid #383940;background:#202126;color:#aeb0b7;border-radius:6px;padding:7px 10px;font:inherit;font-size:9px;cursor:pointer}
+.jm-view-tabs button.active{background:#352124;border-color:#c83a40;color:#fff}
+.jm-actions{display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap}
+.jm-action,.jm-save{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid #414249;background:#24252b;color:#eee;padding:9px 10px;border-radius:7px;font:inherit;font-size:9px;cursor:pointer;white-space:nowrap}
+.jm-action:hover,.jm-download:hover{border-color:#777982}
+.jm-action:disabled,.jm-save:disabled{opacity:.55;cursor:wait}
+.jm-action.danger{border-color:#74383d;color:#f0b5b8}
+.jm-save{background:#c92730;border-color:#c92730;color:#fff;font-weight:700;padding:10px 13px}
+.jm-editor{border-top:1px solid #37383e;margin-top:17px;padding-top:17px}
+.jm-editor-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:17px}
+.jm-editor-heading small{color:#e34a50;font-size:9px;letter-spacing:.15em;font-weight:800}
+.jm-editor-heading h3{font-size:16px;margin:5px 0 0}
+.jm-editor-heading>span{font-size:9px;color:#8fbd9c}
+.jm-edit-field{margin:16px 0}
+.jm-edit-field>b{display:block;color:#e8e8eb;font-size:10px;margin-bottom:9px}
+.jm-edit-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.jm-edit-checks label,.jm-edit-providers label{display:flex;align-items:center;gap:8px;min-width:0;background:#222329;border:1px solid #383940;border-radius:6px;padding:9px;color:#c9cacf;font-size:10px;cursor:pointer}
+.jm-edit-checks input,.jm-edit-providers input{accent-color:#df343b;flex-shrink:0}
+.jm-edit-providers{display:grid;gap:7px}
+.jm-edit-field select,.jm-edit-field input:not([type=checkbox]):not([type=radio]),.jm-edit-field textarea{width:100%;box-sizing:border-box;background:#111216;border:1px solid #3a3b42;border-radius:7px;color:#eee;padding:10px 11px;font:inherit;font-size:11px;outline:none}
+.jm-edit-field textarea{resize:vertical;line-height:1.6;min-height:120px}
+.jm-edit-field select:focus,.jm-edit-field input:focus,.jm-edit-field textarea:focus{border-color:#bd3b41}
+.jm-editor-actions{display:flex;justify-content:flex-end;gap:7px;margin-top:17px}
+.jm-editor-note{font-size:9px;line-height:1.6;color:#92949b;margin:10px 0 0}
+@media(max-width:620px){.jm-actions{justify-content:flex-start}.jm-edit-checks{grid-template-columns:1fr}.jm-editor-heading{align-items:flex-start;flex-direction:column}}
